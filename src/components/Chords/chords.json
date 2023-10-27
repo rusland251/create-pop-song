@@ -1,0 +1,11 @@
+  {
+    "chord":[{ "name": "Am", "number": 1, "sound":"ChordSound/Am.wav"},
+    { "name": "Dm", "number": 2 , "sound":"ChordSound/Dm.wav"},
+    { "name": "C", "number": 3 , "sound":"ChordSound/C.wav"},
+    { "name": "Dm", "number": 4 , "sound":"ChordSound/Dm.wav"},
+    { "name": "E", "number": 5 , "sound":"ChordSound/E.wav"},
+    { "name": "F", "number": 6 , "sound":"ChordSound/F.wav"},
+    { "name": "G", "number": 7 , "sound":"ChordSound/G.wav"}
+  ]
+}
+
