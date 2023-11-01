@@ -1,39 +1,29 @@
 import Button from "@mui/material/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import findChord from "./ChordAPI/findchord";
+import generateNotes from "./ChordAPI/generateNotes";
 
 export default function BuildChords() {
   let playNum = 0;
   const [chordArray, setChordArray] = useState(0);
-  const chord = findChord();
+  const chordArr = findChord();
   const audio = new Audio();
-  const tracks: (string | undefined)[] = chord.map((el) => el?.sound);
+  const tracks: (string | undefined)[] = chordArr.map((el) => el?.sound);
   tracks.unshift("ChordSound/Am.wav");
   let isPlay = false;
-  // let rslt = localStorage.getItem("test");
 
-  // if (rslt) {
-  //   console.log("есть");
-  // } else {
-  //   localStorage.setItem("test", JSON.stringify(tracks));
-  // }
-  // useEffect(() => {
-  //   console.log(rslt);
-  //   localStorage.clear();
-  //   localStorage.setItem("test", JSON.stringify(tracks));
-  // }, [tracks]);
+  // заменить потом на одну переменную?
   const storageChord = JSON.parse(localStorage.getItem("chord") || "{}");
   const storageTracks = JSON.parse(localStorage.getItem("tracks") || "{}");
 
   function handleClick() {
-    console.log(storageChord[0].name);
-    // console.log(tracks);
+    generateNotes(storageChord);
     if (!isPlay) {
-      audio.src = storageTracks[playNum]!;
-      audio.play();
+      // audio.src = storageTracks[playNum]!;
+      // audio.play();
       isPlay = true;
     } else {
-      audio.pause();
+      // audio.pause();
       isPlay = false;
       playNum = 0;
     }
@@ -43,8 +33,8 @@ export default function BuildChords() {
       } else {
         playNum = 0;
       }
-      audio.src = storageTracks[playNum]!;
-      audio.play();
+      // audio.src = storageTracks[playNum]!;
+      // audio.play();
       isPlay = true;
     }
     audio.addEventListener("ended", playNext);
@@ -53,25 +43,34 @@ export default function BuildChords() {
     <div>
       <Button
         onClick={() => {
-          audio.pause();
+          // audio.pause();
           setChordArray(chordArray + 1);
           localStorage.clear();
           localStorage.setItem("tracks", JSON.stringify(tracks));
-          localStorage.setItem("chord", JSON.stringify(chord));
+          localStorage.setItem("chord", JSON.stringify(chordArr));
         }}
       >
         Генерировать
       </Button>
-      <div>
-        <div>Am</div>
-        <div>{storageChord[0]?.name}</div>
-        <div>{storageChord[1]?.name}</div>
-        <div>{storageChord[2]?.name}</div>
+      <div style={{ display: "flex", gap: "50px" }}>
+        <div>
+          <div>{storageChord[0]?.name}</div>
+          <div>{storageChord[1]?.name}</div>
+          <div>{storageChord[2]?.name}</div>
+          <div>{storageChord[3]?.name}</div>
+        </div>
+        <div>
+          <div>{storageChord[0]?.name}</div>
+          <div>{storageChord[1]?.name}</div>
+          <div>{storageChord[2]?.name}</div>
+          <div>{storageChord[3]?.name}</div>
+        </div>
       </div>
-      <Button onClick={handleClick}>Играть</Button>
+
+      <Button onClick={handleClick}>Играть </Button>
       <Button
         onClick={() => {
-          audio.pause();
+          // audio.pause();
           isPlay = false;
         }}
       >
