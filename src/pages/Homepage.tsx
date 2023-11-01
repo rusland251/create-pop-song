@@ -1,11 +1,11 @@
 import { Component, ReactNode } from "react";
-import UseChords from "../components/Chords/useChords";
+import BuildChords from "../components/Chords/BuildChords";
 
 class Homepage extends Component {
   render(): ReactNode {
     return (
       <div>
-        <UseChords />
+        <BuildChords />
       </div>
     );
   }

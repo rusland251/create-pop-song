@@ -5,7 +5,7 @@ export default function generateChord() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  const newChordArray: number[] = Array.from({ length: 3 }, () =>
+  const newChordArray: number[] = Array.from({ length: 4 }, () =>
     getRandomArbitrary(1, 7)
   );
 

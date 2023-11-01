@@ -15,6 +15,7 @@ export default function HeaderMenu() {
         aria-controls={open ? "demo-positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        href="/"
         onClick={handleClick}
       >
         Главная Страница
@@ -24,6 +25,7 @@ export default function HeaderMenu() {
         aria-controls={open ? "demo-positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        href="/about"
         onClick={handleClick}
       >
         О программе
